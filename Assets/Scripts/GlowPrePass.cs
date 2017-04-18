@@ -40,7 +40,10 @@ public class GlowPrePass : MonoBehaviour
 		{
 			var temp = RenderTexture.GetTemporary(Blurred.width, Blurred.height);
 			Graphics.Blit(Blurred, temp, _blurMat, 0);
+
+			// Comment this next line out if you don't want glow that goes beyond the edges of the object
 			Graphics.Blit(temp, Blurred, _blurMat, 1);
+
 			RenderTexture.ReleaseTemporary(temp);
 		}
 	}
